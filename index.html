@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/Spartan">
+  <title>Frontend Mentor | Calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Quang Tran</a>.
+  </div>
+  
+
+  <section class="calc-header">
+    <span class="calc-logo">calc</span>
+    <div class="theme-toggle">
+      <span class="toggle-lable">theme</span>
+      <div class="theme-toggle-container">
+        <ul class="theme-name">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+        <ul class="theme-btn">
+          <li class="btn1"><a ></a></li>
+          <li class="btn2 hidden"><a ></a></li>
+          <li class="btn3 hidden"><a ></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="result">
+    <div data-previous-operand class="previous-operand">356</div>
+    <div data-current-operand class="current-operand">12</div>
+  </section>
+  <section class="calc-pad">
+    <button data-number class="reg-btn">7</button>
+    <button data-number class="reg-btn">8</button>
+    <button data-number class="reg-btn">9</button>
+    <button data-delete class="del">del</button>
+    <button data-number class="reg-btn">4</button>
+    <button data-number class="reg-btn">5</button>
+    <button data-number class="reg-btn">6</button>
+    <button data-operator class="reg-btn">+</button>
+    <button data-number class="reg-btn">1</button>
+    <button data-number class="reg-btn">2</button>
+    <button data-number class="reg-btn">3</button>
+    <button data-operator class="reg-btn">-</button>
+    <button data-number class="reg-btn">.</button>
+    <button data-number class="reg-btn">0</button>
+    <button data-operator class="reg-btn">/</button>
+    <button data-operator class="reg-btn">x</button>
+    <button data-reset class="reset">reset</button>
+    <button data-equal class="equal">=</button>
+  </section>
+  
+  <script src="main.js"></script>
+
+</body>
+</html>

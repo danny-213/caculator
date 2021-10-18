@@ -1,0 +1,327 @@
+
+/* Two display mode : Mobile: maxwidth(375px),  Desktop: minwidth(376px)
+the sizes of element inside remains the same throughout different viewport*/
+*{
+    box-sizing: border-box;
+}
+:root {
+
+    --transition-time: 1s;
+
+    /* Theme 1 color */
+    --theme1-main-bg:hsl(222, 26%, 31%);
+    --theme1-toggle-bg:hsl(223, 31%, 20%);
+    --theme1-screen-bg:hsl(224, 36%, 15%);
+    --theme1-toggle-btn:hsl(6, 63%, 50%);
+    --theme1-key-gray:hsl(30, 25%, 89%);
+    --theme1-key-gray-shadow:hsl(28, 16%, 65%);
+    --theme1-key-blue:hsl(225, 21%, 49%);
+    --theme1-key-blue-shadow:hsl(224, 28%, 35%);
+    --theme1-key-red:hsl(6, 63%, 50%);
+    --theme1-key-red-shadow:hsl(6, 70%, 34%);
+
+    /* theme 2 color */
+    --theme2-main-bg:hsl(0, 0%, 90%);
+    --theme2-toggle-bg:hsl(0, 5%, 81%);
+    --theme2-screen-bg:hsl(0, 0%, 93%);
+    --theme2-toggle-btn:hsl(25, 98%, 40%);
+    --theme2-key-gray:white;
+    --theme2-key-gray-shadow:orange;
+    --theme2-key-cyan:hsl(185, 42%, 37%);
+    --theme2-key-cyan-shadow:hsl(185, 58%, 25%);
+    --theme2-key-orange:hsl(25, 98%, 40%);
+    --theme2-key-orange-shadow:hsl(25, 99%, 27%);
+    --theme2-txt-primary:hsl(60, 10%, 19%);
+
+    /* theme 3 color */
+    --theme3-main-bg:hsl(268, 75%, 9%);
+    --theme3-toggle-bg:hsl(268, 71%, 12%);
+    --theme3-screen-bg:hsl(268, 71%, 12%);
+    --theme3-toggle-btn:hsl(176, 100%, 44%);
+    --theme3-key-violet:hsl(281, 89%, 26%);
+    --theme3-key-violet-shadow:hsl(285, 91%, 52%);
+    --theme3-key-cyan:hsl(176, 100%, 44%);
+    --theme3-key-cyan-shadow:hsl(177, 92%, 70%);
+    --theme3-key-dark-violet:hsl(268, 47%, 21%);
+    --theme3-key-dark-violet-shadow:hsl(290, 70%, 36%);
+    --theme3-txt-primary:hsl(52, 100%, 62%);
+    --theme3-txt-secondary: hsl(198, 20%, 13%);
+}
+body {
+
+    font-family:'Spartan', sans-serif;
+    font-weight: 700;
+    
+    background-color: var(--theme1-main-bg);
+    color:white;
+    transition-duration: var(--transition-time);
+}
+
+section {
+    width:375px; 
+    margin: 5px auto;
+    border-radius: 5px;
+}
+
+
+
+/* position an sizing calc-header */
+.calc-header {
+    display: flex;
+    margin-top:20px;
+}
+
+.calc-logo {
+    font-size:20px;
+    letter-spacing: 0.1ch;
+    margin-top:6px;
+}
+.theme-toggle {
+    margin-left:auto;
+    display: flex;
+}
+
+.toggle-lable{
+    margin-top:16px;
+    margin-right:10px;
+    
+}
+
+.toggle-lable, .theme-name{
+    text-transform: uppercase;
+    font-size: 8px;
+    letter-spacing: 0.1ch;
+}
+/* turn off <ul> default margin */
+.theme-name, .theme-btn {
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+.theme-name, .theme-btn{
+    display: flex;
+}
+.theme-name li {
+    margin:2px 5px;
+}
+.theme-btn li{
+    margin:3px;
+}
+
+
+/* toggle color and backgrounds */
+.theme-btn{
+    background-color: var(--theme1-toggle-bg);
+    border-radius:50px;    
+}
+.theme-btn li{
+    background-color:var(--theme1-toggle-btn);
+    width: 9px; height: 9px;
+    border-radius:50px;
+    margin:3px;
+}
+
+/* SECTION 2: RESULT */
+.result {
+    background-color: var(--theme1-screen-bg);
+    padding:10px;
+    height:70px;
+}
+.result .previous-operand { 
+    position: relative;
+    top:0px;
+    right:0;
+    text-align:right;
+    font-size:15px;
+    color:grey;
+}
+.result .current-operand { 
+    position: relative;
+    top:5px;
+    right:0;
+    text-align:right;
+    font-size:25px;
+}
+
+/* SECTION 3: KEY PAD will be flex container with margin and column limit */
+
+.calc-pad {
+    height:300px;
+    padding:20px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    background-color: var(--theme1-toggle-bg);
+}
+button {
+
+    /* lay-out and sizing*/
+    flex: 0 0 21%;
+    width:55px; height: 40px;
+
+    border-radius:10px;
+    border:none;
+
+    /* text */
+    text-transform: uppercase;
+    font-size:20px;
+    font-weight:700;
+
+    transition-duration: var(--transition-time);
+}
+
+.reg-btn {
+    /* design background & color*/
+    background-color: var(--theme1-key-gray);
+    border-bottom: 3px solid var(--theme1-key-gray-shadow);
+}
+
+.reg-btn:hover {
+    background-color: rgb(255, 255, 255);
+    color:rgb(103, 103, 255);
+}
+.reset:hover, .del:hover  {
+    background-color: rgb(103, 103, 255);
+}
+.equal:hover {
+    background-color: rgb(255, 137, 137);
+}
+.reset, .equal {
+    flex: 0 0 47.5%;
+}
+.reset, .del{
+    background-color: var(--theme1-key-blue) ;
+    border-bottom: 3px solid var(--theme1-key-blue-shadow);
+    font-size:18px;
+}
+.equal{
+    background-color: var(--theme1-key-red);
+    border-bottom: 3px solid var(--theme1-key-red-shadow);
+}
+.reset, .equal, .del {
+    color:white;
+}
+
+/* STYLING FOR THEME 2 */
+
+.body2 {
+    background-color: var(--theme2-main-bg);
+    color:var(--theme2-txt-primary);
+}
+
+.result2 {
+    background-color: var(--theme2-screen-bg);
+}
+
+.calc-pad2, .theme-btn2 {
+    background-color: var(--theme2-toggle-bg);
+}
+ 
+.theme-btn2 li {
+    background-color: var(--theme2-key-orange);
+}
+.reg-btn2 {
+    /* design background & color*/
+
+    background-color: var(--theme2-key-gray);
+    border-bottom: 3px solid var(--theme2-key-gray-shadow);
+}
+
+.reset2, .del2{
+    background-color: var(--theme2-key-cyan) ;
+    border-bottom: 3px solid var(--theme2-key-cyan-shadow);
+
+}
+.equal2{
+    background-color: var(--theme2-key-orange);
+    border-bottom: 3px solid var(--theme2-key-orange-shadow);
+}
+
+.reg-btn2:hover {
+    background-color: rgb(184, 184, 184);
+    color:orange;
+}
+.reset2:hover, .del2:hover  {
+    background-color: hsl(185, 38%, 63%);
+}
+.equal2:hover {
+    background-color: hsl(25, 90%, 48%);
+}
+/* STYLING FOR THEME 3 */
+
+.body3 {
+    background-color: var(--theme3-main-bg);
+    background-image: url(images/universe.jpeg);
+    background-image: no-repeat;
+    color:var(--theme3-txt-primary);
+}
+
+.result3 {
+    background-color: var(--theme3-screen-bg);
+    opacity: 0.5;
+}
+
+.calc-pad3, .theme-btn3{
+    background-color: var(--theme3-toggle-bg);
+}
+.theme-btn3 li {
+    background-color: var(--theme3-key-cyan);
+}
+.reg-btn3 {
+    background-color: var(--theme3-key-violet);
+    border-bottom: 3px solid var(--theme3-key-violet-shadow);
+}
+
+.reset3, .del3{
+    background-color: var(--theme3-key-cyan) ;
+    border-bottom: 3px solid var(--theme3-key-cyan-shadow);
+
+}
+.equal3{
+    background-color: var(--theme3-key-dark-violet);
+    border-bottom: 3px solid var(--theme3-key-dark-violet-shadow);
+}
+
+.reg-btn3:hover {
+    background-color: hsl(285, 87%, 38%);
+    color:rgb(44, 44, 44);
+}
+.reset3:hover, .del3:hover  {
+    background-color: hsl(176, 95%, 33%);
+}
+.equal3:hover {
+    background-color: hsl(285, 87%, 38%);
+}
+
+/* declared later, hide unselect toggle buttons, add in by js */
+.theme-btn .hidden {
+    background-color:initial;
+}
+
+/* RESIZING FOR MOBILE */
+@media screen  and (max-width: 445px) {
+    .attribution {
+        display: none;
+    }
+
+    section {
+        width:250px; 
+        margin: 5px auto;
+        
+    }
+
+    button {
+
+        /* lay-out and sizing*/
+        flex: 0 0 21%;
+        width:40px; height: 40px;
+    
+        border-radius:5px;
+        
+    }
+
+    .reset, .equal, .del {
+        font-size: 12px;
+    }
+}
